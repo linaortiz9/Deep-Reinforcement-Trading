@@ -6,3 +6,6 @@
 - `src/retry.py`: Jittered exponential backoff policies.
 - `src/validator.py`: Input validation and slug sanitization.
 - `src/metrics.py`: Lightweight counters and latency histograms.
+
+### Pagination Caps
+Enforce an upper page limit (`max_limit=100`) to keep memory footprint predictable under load.
