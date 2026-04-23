@@ -10,3 +10,6 @@ All notable changes to this project are documented in this file.
 
 ### v1.0.3 (2026-04-03)
 - Refreshed baseline runtime settings in `config/defaults.json`.
+
+### v1.0.4 (2026-04-23)
+- Improved latency summary calculations for diagnostic snapshots.
