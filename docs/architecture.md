@@ -9,3 +9,6 @@
 
 ### Pagination Caps
 Enforce an upper page limit (`max_limit=100`) to keep memory footprint predictable under load.
+
+### Cache Eviction
+Expired entries are purged lazily on reads and swept before reaching `max_items` capacity.
