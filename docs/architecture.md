@@ -15,3 +15,6 @@ Expired entries are purged lazily on reads and swept before reaching `max_items`
 
 ### Shutdown Checklist
 Flush in-flight metrics snapshots and release local file locks before exiting worker loops.
+
+### Retry Strategy
+Prefer bounded exponential backoff with full jitter to avoid synchronized worker spikes during upstream degradation.
