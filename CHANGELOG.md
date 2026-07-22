@@ -13,3 +13,6 @@ All notable changes to this project are documented in this file.
 
 ### v1.0.4 (2026-04-23)
 - Improved latency summary calculations for diagnostic snapshots.
+
+### v1.0.5 (2026-07-22)
+- Stabilized timeout thresholds for slow upstream responses.
