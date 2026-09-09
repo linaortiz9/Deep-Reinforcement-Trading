@@ -18,3 +18,6 @@ Flush in-flight metrics snapshots and release local file locks before exiting wo
 
 ### Retry Strategy
 Prefer bounded exponential backoff with full jitter to avoid synchronized worker spikes during upstream degradation.
+
+### Configuration Precedence
+Process environment variables always override default values defined in `config/defaults.json`.
