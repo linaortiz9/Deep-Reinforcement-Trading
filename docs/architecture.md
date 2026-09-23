@@ -21,3 +21,6 @@ Prefer bounded exponential backoff with full jitter to avoid synchronized worker
 
 ### Configuration Precedence
 Process environment variables always override default values defined in `config/defaults.json`.
+
+### Logging Conventions
+Emit UTC ISO-8601 timestamps with flat `key=value` context fields for easy log parsing.
