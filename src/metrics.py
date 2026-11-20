@@ -1,30 +1,9 @@
-from collections import defaultdict
-from typing import Dict
-
-
-class MetricsRegistry:
+class CacheStats:
     def __init__(self):
-        self._counters: Dict[str, int] = defaultdict(int)
-        self._timings: Dict[str, list] = defaultdict(list)
+        self.hits = 0
+        self.misses = 0
 
-    def inc(self, name: str, value: int = 1) -> None:
-        self._counters[name] += value
-
-    def observe_ms(self, name: str, elapsed_ms: float) -> None:
-        self._timings[name].append(round(float(elapsed_ms), 2))
-
-    def snapshot(self) -> Dict:
-        return {'counters': dict(self._counters), 'samples': {k: len(v) for k, v in self._timings.items()}}
-
-
-def compute_p95(samples: list) -> float:
-    if not samples:
-        return 0.0
-    ordered = sorted(samples)
-    idx = min(len(ordered) - 1, int(len(ordered) * 0.95))
-    return round(float(ordered[idx]), 2)
-
-
-def moving_avg(values: list, window: int = 5) -> float:
-    subset = values[-max(1, window):]
-    return round(sum(subset) / len(subset), 3) if subset else 0.0
+    @property
+    def hit_ratio(self) -> float:
+        total = self.hits + self.misses
+        return round(self.hits / total, 4) if total else 0.0
